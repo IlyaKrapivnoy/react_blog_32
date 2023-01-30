@@ -2,19 +2,25 @@ import { Link } from "react-router-dom"
 
 const BlogList = ({ blogs, title }) => {  
 
-    return ( 
-        <div className="blog-list">
+    return (
+        <div className='blog-list'>
             <h2>{title}</h2>
             {blogs.map((blog) => (
-                <div className="blog-preview" key={blog.id}>
-                    <Link to={`/blogs/${blog.id}`}>
-                        <h2>{ blog.title }</h2>
-                        <p>Written by <span style={{ color: '#949494' }}> { blog.author } </span></p>
-                    </Link>
-                </div>
+                <Link to={`/blogs/${blog.id}`} key={blog.id}>
+                    <div className='blog-preview'>
+                        <h2>{blog.title}</h2>
+                        <p>
+                            Written by{' '}
+                            <span style={{ color: '#949494' }}>
+                                {' '}
+                                {blog.author}{' '}
+                            </span>
+                        </p>
+                    </div>
+                </Link>
             ))}
         </div>
-     );
+    );
 }
 
 
