@@ -3,7 +3,11 @@ import useFetch from './useFetch'
 
 const BlogDetails = () => {
     const { id } = useParams()
-    const { data: blog, error, isLoading } = useFetch('http://localhost:3000/blogs/' + id)
+    const {
+        data: blog,
+        error,
+        isLoading,
+    } = useFetch(`http://localhost:3000/blogs/${id}`);
     const history = useHistory()
 
     const handleClick = () => {
