@@ -1,9 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
-const BlogList = ({ blogs, title }) => {  
+interface Blog {
+    id: string;
+    title: string;
+    author: string;
+}
 
+interface Props {
+    blogs: Blog[];
+    title: string;
+}
+
+const BlogList = ({ blogs, title }: Props) => {
     return (
-        <div className='blog-list'>
+        <div className={'blog-list'}>
             <h2>{title}</h2>
             {blogs.map((blog) => (
                 <Link to={`/blogs/${blog.id}`} key={blog.id}>
@@ -21,11 +31,6 @@ const BlogList = ({ blogs, title }) => {
             ))}
         </div>
     );
-}
-
+};
 
 export default BlogList;
-
-
-
-
