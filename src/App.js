@@ -7,27 +7,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="content">
-           <Switch>
-             <Route exact path="/" >
-              <Home />
-             </Route>
-             <Route path="/create" >
-              <Create />
-             </Route>
-             <Route path="/blogs/:id" >
-              <BlogDetails />
-             </Route>
-             <Route path="*">
-              <NotFound />
-             </Route>
-           </Switch>
-        </div>
-      </div>
-    </Router>
+      <Router>
+          <div className='App'>
+              <Navbar />
+              <div className='content'>
+                  <Switch>
+                      <Route exact path='/' component={Home} />
+                      <Route path='/create' component={Create} />
+                      <Route path='/blogs/:id' component={BlogDetails} />
+                      <Route path="*" component={NotFound} />
+                  </Switch>
+              </div>
+          </div>
+      </Router>
   );
 }
 
