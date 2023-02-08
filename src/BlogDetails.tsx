@@ -19,19 +19,28 @@ const BlogDetails = () => {
     }
 
     return (
-        <div className="blog-details">
-            { isLoading && <div>Loading...</div> }
-            { error && <div>{ error }</div> }
-            { blog && (
-                <article>
-                    <h2>{ blog.title }</h2>
-                    <p>Written by <span style={{ color: '#949494' }}>{ blog.author }</span></p>
-                    <div>{ blog.body }</div>
-                    <button onClick={handleClick}>Delete</button>
-                </article>
-            ) }
+        <div className='blog-details'>
+            {isLoading ? (
+                <div>Loading...</div>
+            ) : error ? (
+                <div>{error}</div>
+            ) : (
+                blog && (
+                    <article>
+                        <h2>{blog.title}</h2>
+                        <p>
+                            Written by{' '}
+                            <span style={{ color: '#949494' }}>
+                                {blog.author}
+                            </span>
+                        </p>
+                        <div>{blog.body}</div>
+                        <button onClick={handleClick}>Delete</button>
+                    </article>
+                )
+            )}
         </div>
-    )
+    );
 }
 
 export default BlogDetails
