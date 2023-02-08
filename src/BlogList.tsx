@@ -1,17 +1,7 @@
 import { Link } from 'react-router-dom';
+import { BlogListProps } from '../types';
 
-interface Blog {
-    id: string;
-    title: string;
-    author: string;
-}
-
-interface Props {
-    blogs: Blog[];
-    title: string;
-}
-
-const BlogList = ({ blogs, title }: Props) => {
+const BlogList = ({ blogs, title }: BlogListProps) => {
     const renderBlogs = () => {
         return blogs.map((blog) => (
             <Link to={`/blogs/${blog.id}`} key={blog.id}>
